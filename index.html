@@ -100,23 +100,23 @@
                         <!-- Top Stat Cards -->
                         <div class="stat-cards">
                             <div class="stat-card">
-                                <div class="stat-icon" style="background:linear-gradient(135deg,#059669,#10b981);"><i class="fa-solid fa-list"></i>
+                                <div class="stat-icon" style="background:linear-gradient(135deg,#06b6d4,#0891b2);"><i class="fa-solid fa-list"></i>
                                 </div>
                                 <div class="stat-info">
-                                    <span class="stat-value" id="stat-all-tasks" style="color:#34d399;">0</span>
+                                    <span class="stat-value" id="stat-all-tasks" style="color:#22d3ee;">0</span>
                                     <span class="stat-label">All Tasks</span>
                                 </div>
                             </div>
                             <div class="stat-card">
-                                <div class="stat-icon" style="background:linear-gradient(135deg,#d97706,#f59e0b);"><i class="fa-solid fa-pencil"></i>
+                                <div class="stat-icon" style="background:linear-gradient(135deg,#7c3aed,#6d28d9);"><i class="fa-solid fa-pencil"></i>
                                 </div>
                                 <div class="stat-info">
-                                    <span class="stat-value" id="stat-incomplete" style="color:#fbbf24;">0</span>
+                                    <span class="stat-value" id="stat-incomplete" style="color:#a78bfa;">0</span>
                                     <span class="stat-label">Incomplete</span>
                                 </div>
                             </div>
                             <div class="stat-card">
-                                <div class="stat-icon" style="background:linear-gradient(135deg,#dc2626,#ef4444);"><i class="fa-regular fa-clock"></i>
+                                <div class="stat-icon" style="background:linear-gradient(135deg,#ef4444,#dc2626);"><i class="fa-regular fa-clock"></i>
                                 </div>
                                 <div class="stat-info">
                                     <span class="stat-value" id="stat-overdue" style="color:#f87171;">0</span>
@@ -124,10 +124,10 @@
                                 </div>
                             </div>
                             <div class="stat-card">
-                                <div class="stat-icon" style="background:linear-gradient(135deg,#0e7490,#22d3ee);"><i class="fa-regular fa-bell"></i>
+                                <div class="stat-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706);"><i class="fa-regular fa-bell"></i>
                                 </div>
                                 <div class="stat-info">
-                                    <span class="stat-value" id="stat-due-today" style="color:#67e8f9;">0</span>
+                                    <span class="stat-value" id="stat-due-today" style="color:#fcd34d;">0</span>
                                     <span class="stat-label">Due Today</span>
                                 </div>
                             </div>
@@ -139,12 +139,12 @@
                                 <span><i class="fa-solid fa-bars"></i> Latest Tasks</span>
                                 <div style="display:flex; gap:8px;">
                                     <button class="btn-create-task" id="btn-create-task"
-                                        style="background:linear-gradient(135deg,#059669,#10b981); border:none; color:#fff; padding:8px 16px; border-radius:10px; cursor:pointer; font-size:12px; font-weight:700; box-shadow:0 4px 14px rgba(16,185,129,0.35); transition:all 0.25s; letter-spacing:0.3px;">
+                                        style="background:linear-gradient(135deg,#7c3aed,#6d28d9); border:none; color:#fff; padding:7px 14px; border-radius:8px; cursor:pointer; font-size:12px; font-weight:700; box-shadow:0 4px 12px rgba(124,58,237,0.35); transition:all 0.2s;">
                                         <i class="fa-solid fa-plus"></i> Create new Task
                                     </button>
                                     <button id="btn-delete-tasks"
-                                        style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.25); color:#f87171; padding:8px 16px; border-radius:10px; cursor:pointer; font-size:12px; font-weight:700; transition:all 0.25s;">
-                                        <i class="fa-solid fa-trash"></i> Delete
+                                        style="background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.3); color:#f87171; padding:7px 14px; border-radius:8px; cursor:pointer; font-size:12px; font-weight:700; transition:all 0.2s;">
+                                        <i class="fa-solid fa-trash"></i> Delete Tasks
                                     </button>
                                 </div>
                             </div>
@@ -226,13 +226,13 @@
 
                             <ul class="stats-list" id="stats-list">
                                 <li><span>Open</span><span class="val" style="color:#f87171;" id="s-open">0</span></li>
-                                <li><span>In Progress</span><span class="val" style="color:#fbbf24;" id="s-inprogress">0</span></li>
-                                <li><span>Completed</span><span class="val" style="color:#34d399;" id="s-completed">0</span></li>
+                                <li><span>In Progress</span><span class="val" style="color:#fcd34d;" id="s-inprogress">0</span></li>
+                                <li><span>Completed</span><span class="val" style="color:#6ee7b7;" id="s-completed">0</span></li>
                                 <li><span>On Hold</span><span class="val" style="color:#67e8f9;" id="s-onhold">0</span></li>
-                                <li><span>Canceled</span><span class="val" style="color:#6b7280;" id="s-canceled">0</span></li>
+                                <li><span>Canceled</span><span class="val" style="color:#94a3b8;" id="s-canceled">0</span></li>
                                 <li class="separator"></li>
                                 <li><span>Active</span><span class="val" style="color:#f87171; font-weight:900;" id="s-active-pct">0%</span></li>
-                                <li><span>Closed</span><span class="val" style="color:#34d399; font-weight:900;" id="s-closed-pct">0%</span></li>
+                                <li><span>Closed</span><span class="val" style="color:#6ee7b7; font-weight:900;" id="s-closed-pct">0%</span></li>
                             </ul>
                         </div>
                     </aside>
