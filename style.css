@@ -345,6 +345,7 @@ body {
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     padding: 15px;
+    margin-bottom: 32px;  /* Space between Latest Tasks and Calendar */
 }
 
 .tabs {
@@ -524,86 +525,101 @@ body {
     }
 }
 
-/* ==========================================
-   Calendar Widget Styles (Matches Reference Image)
-   ========================================== */
+/* ==============================================
+   Calendar Widget — Premium Redesign
+   ============================================== */
 .calendar-widget {
     background: #ffffff;
     border-radius: 20px;
-    padding: 24px 28px;
+    overflow: hidden;
     margin-bottom: 25px;
-    box-shadow: 0 10px 40px rgba(106, 91, 205, 0.08); /* Premium soft shadow */
+    box-shadow: 0 8px 32px rgba(108, 92, 231, 0.13);
+    border: 1px solid rgba(108, 92, 231, 0.08);
+    transition: box-shadow 0.3s;
+}
+.calendar-widget:hover {
+    box-shadow: 0 12px 40px rgba(108, 92, 231, 0.18);
 }
 
+/* --- Gradient Header Bar --- */
 .cw-header {
+    background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
+    padding: 18px 28px;
 }
 
 .cw-title {
     font-size: 17px;
-    font-weight: 600;
-    color: #111;
+    font-weight: 700;
+    color: #fff;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    letter-spacing: 0.3px;
 }
 .cw-title i.fa-calendar-alt {
-    color: #6a5bcd;
-    font-size: 19px;
+    color: rgba(255,255,255,0.85);
+    font-size: 18px;
 }
+
 /* Scroll Pickers (Month + Year) */
 .cw-scroll-pickers {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-left: 14px;
+    gap: 10px;
+    margin-left: 18px;
 }
 
 .cw-scroll-unit {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
+    gap: 1px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 4px 8px;
 }
 
 .cw-scroll-val {
-    font-size: 14px;
-    font-weight: 600;
-    color: #333;
-    min-width: 52px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    min-width: 48px;
     text-align: center;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 .cw-scroll-btn {
     background: transparent;
     border: none;
     cursor: pointer;
-    color: #6c5ce7;
-    font-size: 10px;
-    padding: 1px 6px;
+    color: rgba(255,255,255,0.8);
+    font-size: 9px;
+    padding: 2px 6px;
     border-radius: 4px;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
     line-height: 1;
 }
-
 .cw-scroll-btn:hover {
-    background: #ede9fb;
+    background: rgba(255,255,255,0.25);
+    color: #fff;
 }
 
+/* --- Day Strip --- */
 .cw-strip {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 24px;
+    padding: 18px 20px 10px;
+    background: #faf9ff;
+    border-bottom: 1px solid rgba(108, 92, 231, 0.08);
 }
 
 .cw-days {
     display: flex;
-    gap: 15px;
+    gap: 6px;
     flex-grow: 1;
     justify-content: space-around;
 }
@@ -613,66 +629,139 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px 18px;
+    padding: 10px 14px;
     border-radius: 14px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
+    min-width: 52px;
 }
 
-.cw-day .day-name { 
-    font-size: 12px; 
-    color: #999; 
-    margin-bottom: 6px; 
-    font-weight: 500;
+.cw-day .day-name {
+    font-size: 11px;
+    color: #aaa;
+    margin-bottom: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
-.cw-day .day-num { 
-    font-size: 17px; 
-    color: #111; 
-    font-weight: 700; 
+.cw-day .day-num {
+    font-size: 18px;
+    color: #333;
+    font-weight: 700;
 }
 
-.cw-day:hover { background: #f8f6fc; }
+.cw-day:hover {
+    background: #ede9fd;
+}
+.cw-day:hover .day-name { color: #6c5ce7; }
+.cw-day:hover .day-num  { color: #6c5ce7; }
 
 .cw-day.active {
-    background: #6c5ce7;
-    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.25);
+    background: linear-gradient(145deg, #6c5ce7, #a29bfe);
+    box-shadow: 0 6px 18px rgba(108, 92, 231, 0.35);
+    transform: translateY(-2px);
 }
-.cw-day.active .day-name, .cw-day.active .day-num {
+.cw-day.active .day-name,
+.cw-day.active .day-num {
     color: #ffffff;
 }
 
 .cw-nav {
     background: transparent;
-    border: none;
-    font-size: 16px;
-    color: #111;
+    border: 2px solid rgba(108, 92, 231, 0.2);
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    font-size: 13px;
+    color: #6c5ce7;
     cursor: pointer;
-    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
 }
-.cw-nav:hover { color: #6c5ce7; }
+.cw-nav:hover {
+    background: #6c5ce7;
+    color: #fff;
+    border-color: #6c5ce7;
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+}
 
+/* --- Events Section --- */
 .cw-events {
-    background: #f8f6fc; /* Very soft light purple from image */
-    border-radius: 20px;
-    padding: 24px 28px;
+    background: #faf9ff;
+    border-radius: 0 0 20px 20px;
+    padding: 20px 24px 24px;
     min-height: 120px;
+}
+
+.cw-events-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #6c5ce7;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.cw-events-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(108,92,231,0.2), transparent);
 }
 
 .cw-event-empty {
     text-align: center;
-    color: #888;
-    font-size: 14px;
-    padding: 30px 0;
-}
-
-.cw-event {
+    color: #bbb;
+    font-size: 13px;
+    padding: 28px 0;
     display: flex;
     flex-direction: column;
-    padding: 0;
-    border-bottom: none;
-    margin-bottom: 20px;
+    align-items: center;
+    gap: 8px;
+}
+.cw-event-empty i {
+    font-size: 28px;
+    color: #ddd;
+}
+
+/* Event Card */
+.cw-event {
+    display: flex;
+    align-items: stretch;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(108, 92, 231, 0.07);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid rgba(108, 92, 231, 0.07);
 }
 .cw-event:last-child { margin-bottom: 0; }
+.cw-event:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 18px rgba(108, 92, 231, 0.13);
+}
+
+/* Left accent bar */
+.cw-event-bar {
+    width: 5px;
+    background: linear-gradient(180deg, #6c5ce7, #a29bfe);
+    border-radius: 0;
+    flex-shrink: 0;
+}
+.cw-event-bar.high   { background: linear-gradient(180deg, #e53935, #ff7675); }
+.cw-event-bar.medium { background: linear-gradient(180deg, #ffb300, #ffeaa7); }
+.cw-event-bar.low    { background: linear-gradient(180deg, #00d1b2, #55efc4); }
+
+.cw-event-body {
+    padding: 12px 16px;
+    flex: 1;
+}
 
 .cw-event-header {
     display: flex;
@@ -682,35 +771,41 @@ body {
 }
 
 .cw-event-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #111;
+    font-size: 14px;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.3;
 }
 
 .cw-event-time {
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 20px;
+    font-size: 12px;
+    color: #888;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
+.cw-event-time i { color: #6c5ce7; font-size: 11px; }
 
 .cw-event-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 8px;
 }
 
 .cw-event-badge {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: #ffffff;
-    padding: 8px 16px;
-    border-radius: 24px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #222;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    gap: 6px;
+    background: #f0eeff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #6c5ce7;
 }
-
+.cw-event-badge.high   { background: #fde8e8; color: #e53935; }
+.cw-event-badge.medium { background: #fff8e1; color: #f59f00; }
+.cw-event-badge.low    { background: #e0faf5; color: #00b894; }
 

@@ -266,28 +266,39 @@ document.addEventListener('DOMContentLoaded', () => {
             return tDate.getTime() === calendarSelectedDate.getTime();
         });
 
-        if(tasksOnDate.length === 0) {
-            eventsContainer.innerHTML = `<div class="cw-event-empty">No tasks scheduled for this day</div>`;
-        } else {
-            let html = '';
-            tasksOnDate.forEach((t, index) => {
-                // Mock avatars removed
+        const dateLabel = calendarSelectedDate.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
 
-                let badgeHtml = '';
-                if(t.priority === 'high') badgeHtml = `<div class="cw-event-badge"><i class="fa-solid fa-fire" style="color:#e53935;"></i> High Priority</div>`;
-                else if(t.status === 'Completed') badgeHtml = `<div class="cw-event-badge"><i class="fa-solid fa-check" style="color:#4caf50;"></i> Completed</div>`;
-                else badgeHtml = `<div class="cw-event-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Google_Meet_icon_%282020%29.svg/512px-Google_Meet_icon_%282020%29.svg.png" style="width:16px; height:16px;"> Google Meet</div>`;
+        if(tasksOnDate.length === 0) {
+            eventsContainer.innerHTML = `
+                <div class="cw-events-title"><i class="fa-regular fa-calendar-check"></i> Tasks Scheduled</div>
+                <div class="cw-event-empty">
+                    <i class="fa-regular fa-calendar-xmark"></i>
+                    No tasks scheduled for ${dateLabel}
+                </div>`;
+        } else {
+            let html = `<div class="cw-events-title"><i class="fa-regular fa-calendar-check"></i> Tasks for ${dateLabel}</div>`;
+            tasksOnDate.forEach((t) => {
+                const barClass = t.priority === 'high' ? 'high' : t.priority === 'low' ? 'low' : 'medium';
+                const badgeClass = t.priority === 'high' ? 'high' : t.priority === 'low' ? 'low' : 'medium';
+                let badgeLabel = t.priority === 'high' ? '<i class="fa-solid fa-fire"></i> High Priority'
+                               : t.priority === 'low'  ? '<i class="fa-solid fa-leaf"></i> Low Priority'
+                               : `<i class="fa-solid fa-circle-half-stroke"></i> ${t.status}`;
 
                 html += `
                 <div class="cw-event">
-                    <div class="cw-event-header">
-                        <div class="cw-event-title">${t.title}</div>
-                        <i class="fa-solid fa-ellipsis" style="color:#aaa; cursor:pointer;"></i>
-                    </div>
-                    <div class="cw-event-time">Today • 10:00 - 11:00 am</div>
-                    
-                    <div class="cw-event-footer">
-                        ${badgeHtml}
+                    <div class="cw-event-bar ${barClass}"></div>
+                    <div class="cw-event-body">
+                        <div class="cw-event-header">
+                            <div class="cw-event-title">${t.title}</div>
+                            <i class="fa-solid fa-ellipsis" style="color:#ccc; cursor:pointer;"></i>
+                        </div>
+                        <div class="cw-event-time">
+                            <i class="fa-regular fa-clock"></i> Due ${dateLabel}
+                        </div>
+                        <div class="cw-event-footer">
+                            <span class="cw-event-badge ${badgeClass}">${badgeLabel}</span>
+                            <span style="font-size:11px; color:#bbb;">#${t.id}</span>
+                        </div>
                     </div>
                 </div>`;
             });
